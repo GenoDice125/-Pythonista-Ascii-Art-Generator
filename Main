@@ -1,0 +1,69 @@
+import ui
+import dialogs
+import CharImage
+import ColoredChar
+import SuperColorChar
+import clipboard
+import appex
+
+count = 1
+def button_tapped(sender):
+	'@type sender: ui.Button'
+	global count
+	# Get the button's title for the following logic:
+	t = sender.title
+	# Get the labels:
+	label = sender.superview['label1']
+	label2 = sender.superview['label2']
+	while count < 1:
+		count += 1
+	while count > 5:
+		count -= 1
+	label.text = 'Step '+ str(count)
+	if t == 'Continue':
+		count = count + 1
+		if count == 2:
+			label2.text = 'Open File "Image into Char" and the Program "Main.py"'
+		elif count == 3:
+			label2.text = 'Find the wrench beside the start button, click it and click "Shortcuts"'
+		elif count == 4:
+			label2.text = 'Click "Share Extensions" and add a new shortcut'
+		elif count == 5:
+			label2.text = 'Type the Share button and click "Run pythonista script"'
+		elif count == 6:
+			label2.text = 'Click "Main"'
+	elif t == 'Return':
+		count = count - 1
+		if count == 1:
+			label2.text = 'Open File "Image into Char" and the Program "Main.py"'
+		elif count == 2:
+			label2.text = 'Find the wrench beside the start button, click it and click "Shortcuts"'
+		elif count == 3:
+			label2.text = 'Click "Share Extensions" and add a new shortcut'
+		elif count == 4:
+			label2.text = 'Type the Share button and click "Run pythonista script"'
+		elif count == 5:
+			label2.text = 'Click "Main"'
+		
+def main():
+	if not appex.is_running_extension():
+		v = ui.load_view()
+		v.present('sheet')
+	else:
+		s = dialogs.alert('Image Convert', 'Choose a style you want','Char','Color Char','Super Color Char')
+		if s == 1:
+			CharImage.main()
+		elif s == 2:
+			ColoredChar.main()
+		elif s == 3:
+			SuperColorChar.main()
+		else:
+			pass
+		i = dialogs.alert('Finished', 'You can tap and hold the image to save it to your photo library.','Okay')
+		if i == 1:
+			pass
+		else:
+			pass
+		
+if __name__=='__main__':
+	main()
