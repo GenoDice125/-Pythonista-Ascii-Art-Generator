@@ -1,4 +1,4 @@
-# _*_ coding:utf-8 _*_ 
+# _*_ coding:utf-8 _*_
 from PIL import Image
 import appex
 import dialogs
@@ -10,14 +10,14 @@ def get_char(r,g,b,alpha = 256):
 	#灰度表
 	ascii_char = list("MNHQ$OC?7o>!:-;. ")
 	if alpha == 0:
-		return ' ' 
+		return ' '
 	length = len(ascii_char)
 	#装换为灰度
 	gray = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
 	unit = (256.0+1)/length
 	#将像素颜色映射为对应的ascii码
-	return ascii_char[int(gray/unit)]  
-
+	return ascii_char[int(gray/unit)]
+	
 def main():
 	w = 5
 	h = 10
@@ -48,14 +48,8 @@ def main():
 		dr = ImageDraw.Draw(im)
 		dr.text((10, 5), txt, fill="#000000")
 		im.show()
-		#结束提醒
-		s = dialogs.alert('Finished', 'You can tap and hold the image to save it to your photo library.','Okay')
-		if i == 1:
-			pass
-		else:
-			pass
 	else:
 		pass
-
+		
 if __name__=='__main__':
 	main()
