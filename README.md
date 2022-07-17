@@ -8,5 +8,5 @@
 ### English:
 **Notice: This Python file need app "Pythonista" for running**<br>
 Here is my Python code for Ascii Art Generator<br>
-It has three different forms depends on your choice
+It has three different forms depends on your choice<br>
 It needs to run outside the Pythonista otherwise it will use the default image
